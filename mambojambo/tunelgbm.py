@@ -43,7 +43,7 @@ def average_precision_feval(preds,train_data):
 def tuneLgbm(X_train,y_train,estimator,scoring,folds=5):
     hist_size=4096
     numLeafRange = [4,8,16,32]
-    n_estimators = 250
+    n_estimators = 100
     param_grid = {
         'histogram_pool_size':[hist_size],
         'learning_rate': [0.02],
@@ -78,7 +78,7 @@ def tuneLgbm(X_train,y_train,estimator,scoring,folds=5):
 
     feature_fraction = getBestParamsFromGrid(gbm)['feature_fraction']  ## chosen number of leaves
     param_grid['feature_fraction']=[feature_fraction]
-    param_grid['min_data_in_leaf']=[1,5,15,25,40,50,60,80,100]
+    param_grid['min_data_in_leaf']=[1,5,15,25,50]
 
     gbm = GridSearchCV(estimator, param_grid=param_grid,
                              cv=folds, scoring=scoring, verbose=10, fit_params={})  # n_jobs=3#,
