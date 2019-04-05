@@ -13,4 +13,4 @@ data['X_train']=X_train
 data['X_test']=X_test
 data['y_train']=y_train.iloc[:,1]
 data['y_test']=y_test.iloc[:,1]
-ret = TrainLgbmBinaryClassifier.train(data)
+ret = TrainLgbmBinaryClassifier.train(data,folds=2)

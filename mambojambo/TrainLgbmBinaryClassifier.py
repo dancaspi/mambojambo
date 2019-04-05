@@ -60,7 +60,7 @@ def save_model_stats(model,features,boosting_type='gbdt',outdir=None):
 
 
 def train(data=None, X_train=None, y_train=None, X_test=None,y_test=None, boosting_type='gbdt', objective='binary', outdir='Lgbm/',
-          ngrid=20, folds=None, retune=True, randomGridSearch=False, crossValScore=False):
+          ngrid=20, folds=2, retune=True, randomGridSearch=False, crossValScore=False):
 
     #outdirpostfix = '_' + boosting_type if outdirpostfix is None else outdirpostfix
     #outdir = 'lgbmstats' + outdirpostfix+'/'
